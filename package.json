@@ -1,0 +1,15 @@
+{
+  "name": "springboot-http-interfaces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "all_ships": "curl localhost:8080/space/ships",
+    "fromCaptain": "curl localhost:8080/space/fromCaptain?captain=Mike",
+    "fromDestination": "curl localhost:8080/space/fromDestination/Mars",
+    "fromDestination_None": "curl localhost:8080/space/fromDestination/blabla",
+    "tryStuff": "curl http://localhost:8080/other/trystuff"
+  },
+  "author": "",
+  "license": "ISC"
+}
