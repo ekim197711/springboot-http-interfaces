@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "all_ships": "curl localhost:8080/space/ships",
-    "fromCaptain": "curl localhost:8080/space/fromCaptain?captain=Mike",
-    "fromDestination": "curl localhost:8080/space/fromDestination/Mars",
-    "fromDestination_None": "curl localhost:8080/space/fromDestination/blabla",
-    "tryStuff": "curl http://localhost:8080/other/trystuff"
+    "curl_all_ships_with_header": "curl -v localhost:8080/space/shipswithheader",
+    "curl_all_ships": "curl localhost:8080/space/ships",
+    "curl_fromCaptain": "curl localhost:8080/space/fromCaptain?captain=Mike",
+    "curl_fromDestination": "curl -v localhost:8080/space/fromDestination/Mars",
+    "curl_fromDestination_secure": "curl -v -u mike:kissme localhost:8080/space/fromDestination/Mars",
+    "curl_fromDestination_None": "curl localhost:8080/space/fromDestination/blabla",
+    "tryStuff": "curl -v http://localhost:8080/other/trystuff/clients",
+    "tryStuff_weather": "curl http://localhost:8080/other/trystuff/weather"
   },
   "author": "",
   "license": "ISC"

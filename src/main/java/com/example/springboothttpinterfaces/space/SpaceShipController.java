@@ -1,6 +1,7 @@
 package com.example.springboothttpinterfaces.space;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.service.annotation.HttpExchange;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +16,13 @@ public class SpaceShipController {
                 new SpaceShip("Eagle", "Paulina", 34, ",Jupiter"),
                 new SpaceShip("Swan", "Brian", 80, "Mars")
         );
+    }
+
+    @GetMapping( "/shipswithheader")
+    List<SpaceShip> shipswithheader(@RequestHeader(name = "mike")String headerValue)
+    {
+        System.out.println("Header Value: " + headerValue);
+        return ships();
     }
     @GetMapping("/fromCaptain")
     Optional<SpaceShip> fromCaptain(@RequestParam String captain){
