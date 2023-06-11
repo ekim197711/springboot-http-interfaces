@@ -1,0 +1,19 @@
+<configuration>
+    <appender name="custom_console" class="ch.qos.logback.core.ConsoleAppender">
+        <!--        <encoder>-->
+        <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %yellow([%thread]) %highlight(%-5level) %logger{36} %M %msg%n</pattern>-->
+        <!--        </encoder>-->
+        <encoder name="wrapping_encoder" class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="com.example.springboothttpinterfaces.logger.CustomPatternLayoutWithUserContext">
+                <param name="Pattern"
+                       value="%d{HH:mm:ss.SSS} %yellow([%user] [%session])  %highlight(%-5level)  %msg%n"/>
+            </layout>
+        </encoder>
+    </appender>
+
+    <springProfile name="default">
+        <root level="info">
+            <appender-ref ref="custom_console"/>
+        </root>
+    </springProfile>
+</configuration>
