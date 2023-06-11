@@ -27,9 +27,6 @@ public class TryStuffController {
         log.info("Security header: " + securityHeader);
         result.put("shipswithheader",
                 spaceShipClient.shipswithheader(securityHeader, "yes he is fun").toString());
-//        result.put("ships",spaceShipClient.ships().toString());
-//        result.put("fromCaptain", spaceShipClient.fromCaptain("Mike").toString());
-//        result.put("fromDestination", spaceShipClient.fromDestination("Mars").toString());
         return result;
     }
     @GetMapping("/trystuff/weather")

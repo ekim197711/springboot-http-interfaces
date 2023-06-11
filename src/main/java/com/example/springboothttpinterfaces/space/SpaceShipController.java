@@ -1,7 +1,7 @@
 package com.example.springboothttpinterfaces.space;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.HttpExchange;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +10,7 @@ import java.util.Optional;
 @RequestMapping("/space")
 public class SpaceShipController {
     @GetMapping("/ships")
-    List<SpaceShip> ships(){
+    List<SpaceShip> ships() {
         return List.of(
                 new SpaceShip("Hawk", "Mike", 50, ",Moon"),
                 new SpaceShip("Eagle", "Paulina", 34, ",Jupiter"),
@@ -18,18 +18,29 @@ public class SpaceShipController {
         );
     }
 
-    @GetMapping( "/shipswithheader")
-    List<SpaceShip> shipswithheader(@RequestHeader(name = "mike")String headerValue)
-    {
+    @GetMapping("/shipswithheader")
+    List<SpaceShip> shipswithheader(@RequestHeader(name = "mike") String headerValue) {
         System.out.println("Header Value: " + headerValue);
         return ships();
     }
+
+    @GetMapping("/ships-bad-request")
+    ResponseEntity<List<SpaceShip>> shipsBadRequest() {
+        return ResponseEntity.badRequest().body(List.of());
+    }
+
+    @GetMapping("/ships-internal-server-error")
+    ResponseEntity<List<SpaceShip>> shipsInternal() {
+        return ResponseEntity.internalServerError().body(List.of());
+    }
+
     @GetMapping("/fromCaptain")
-    Optional<SpaceShip> fromCaptain(@RequestParam String captain){
+    Optional<SpaceShip> fromCaptain(@RequestParam String captain) {
         return ships().stream().filter(s -> s.captain().equalsIgnoreCase(captain)).findFirst();
     }
+
     @GetMapping("/fromDestination/{destination}")
-    Optional<SpaceShip> fromDestination(@PathVariable String destination){
+    Optional<SpaceShip> fromDestination(@PathVariable String destination) {
         return ships().stream().filter(s -> s.destination().equalsIgnoreCase(destination)).findFirst();
     }
 

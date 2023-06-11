@@ -4,6 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "curl_suggestions": "curl -u mike:kissme localhost:8090/destination/box?suggestion=Mars,Pluto,AlphaCentauri",
+    "curl_suggestions2": "curl -u mike:kissme localhost:8090/destination/box?suggestion=Venus=Jupiter=Moon",
+
+
+
+
     "curl_all_ships_with_header": "curl -v localhost:8080/space/shipswithheader",
     "curl_all_ships": "curl localhost:8080/space/ships",
     "curl_fromCaptain": "curl localhost:8080/space/fromCaptain?captain=Mike",
