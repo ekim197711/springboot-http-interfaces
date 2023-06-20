@@ -12,6 +12,6 @@ public class UserConverter extends ClassicConverter {
         if (auth != null) {
             return auth.getName();
         }
-        return "NO_USER";
+        return "-";
     }
 }

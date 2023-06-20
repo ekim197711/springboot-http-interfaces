@@ -12,6 +12,6 @@ public class SessionConverter extends ClassicConverter {
         if (attributes != null) {
             return attributes.getSessionId();
         }
-        return "NO_SESSION";
+        return "-";
     }
 }
