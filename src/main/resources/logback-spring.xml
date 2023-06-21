@@ -11,9 +11,21 @@
         </encoder>
     </appender>
 
+    <appender name="json-appender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <provider class="com.example.springboothttpinterfaces.logger.MikesJsonProvider"/>
+        </encoder>
+    </appender>
+
     <springProfile name="default">
         <root level="info">
-            <appender-ref ref="custom_console"/>
+            <!--            <appender-ref ref="custom_console"/>-->
+            <appender-ref ref="json-appender"/>
+        </root>
+    </springProfile>
+    <springProfile name="production">
+        <root level="info">
+            <appender-ref ref="json-appender"/>
         </root>
     </springProfile>
 </configuration>

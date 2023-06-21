@@ -17,6 +17,7 @@ public class CargoController {
 
     @GetMapping("/cargo")
     List<Cargo> cargo() {
+        log.warn("Cargo is being loaded ");
         List<Cargo> cargoList = List.of(
                 new Cargo("Apples", 10, ZonedDateTime.now().plusMonths(1)),
                 new Cargo("PC", 25, ZonedDateTime.now().plusMonths(36)),
