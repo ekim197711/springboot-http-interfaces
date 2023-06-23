@@ -6,7 +6,7 @@
         <encoder name="wrapping_encoder" class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="com.example.springboothttpinterfaces.logger.CustomPatternLayoutWithUserContext">
                 <param name="Pattern"
-                       value="%d{HH:mm:ss.SSS} %cyan([%user %session]) %msg %highlight(%-5level) %n"/>
+                       value="%d{HH:mm:ss.SSS} %highlight(%-5level) %cyan([%user %session]) %msg %n"/>
             </layout>
         </encoder>
     </appender>
